@@ -1,6 +1,24 @@
 import sys
 import re
+import os
 from zipfile import ZipFile
+
+
+def writeToEmail(line):
+    pass
+
+def create_color_map():
+    color_map = {}
+    color_dir = os.fsencode('colors')
+    for file in os.listdir(color_dir):
+        filename = os.fsdecode(file)
+        color = filename.replace('.txt', '')
+        with open('colors/{}'.format(filename), 'r') as color_file:
+            line = color_file.readline()
+            while line:
+                color_map[line.strip()] = color
+                line = color_file.readline()
+    return color_map
 
 
 def get_species_from_text(txt, species_list):
@@ -8,12 +26,10 @@ def get_species_from_text(txt, species_list):
     isPokemonName = True
     for line in txt.splitlines():
         if isPokemonName:
-            print(line)
             possible_species = re.findall('\(([^)]+)', str(line))
             check_state = 'gender'
             group_check = len(possible_species) - 1
             while group_check >= 0:
-                print('checking with {}'.format(check_state))
                 if check_state == 'gender':
                     if possible_species[group_check] == 'M' or possible_species[group_check] == 'F':
                         group_check -= 1
@@ -33,7 +49,7 @@ def get_species_from_text(txt, species_list):
                 if species_name in species_list:
                     species.append(species_name)
                 else:
-                    print('{} is not a Pokemon'.format(species_name))
+                    writeToEmail('{} is not a Pokemon'.format(species_name))
 
             isPokemonName = False
         elif line == b'':
@@ -42,14 +58,25 @@ def get_species_from_text(txt, species_list):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print('please provide a .zip file to validate')
+    if len(sys.argv) < 3:
+        print('usage: python Validate.py <Zip File> <Color Limit>')
         sys.exit()
 
+    print("Validating teams in {} with a color limit of {}".format(sys.argv[1], sys.argv[2]))
+    color_map = create_color_map()
     with ZipFile(sys.argv[1], 'r') as zip:
-        print(zip.namelist())
+        print("{} teams found!".format(len(zip.namelist())))
         for filename in zip.namelist():
-            print(filename)
+            print("Validating {}...".format(filename))
             team = zip.read(filename)
-            species = get_species_from_text(team, ['Rotom-Heat', 'Smeargle', 'Gengar', 'Excadrill', 'Azumarill', 'Conkeldurr', 'Beedrill', 'Excadrill', 'Rotom-Wash', 'Infernape', 'Porygon2'])
-            print(species)
+            species = get_species_from_text(team, color_map.keys())
+            color_groups = {}
+            for pokemon in species:
+                print("{}\t\t{}".format(pokemon, color_map[pokemon]))
+                if color_map[pokemon] not in color_groups:
+                    color_groups[pokemon] = []
+                color_groups[pokemon].append(pokemon)
+            if len(color_groups) > int(sys.argv[2]):
+                print("This team has exceeded the color limit\n")
+            else:
+                print("This team has been successfully validated against the color limit!\n")

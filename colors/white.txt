@@ -73,11 +73,11 @@ Vivillon-Sandstorm
 Vivillon-Savanna
 Vivillon-Sun
 Vivillon-Tundra
-Flabébé
-Flabébé-Blue
-Flabébé-Orange
-Flabébé-White
-Flabébé-Yellow
+Flabebe
+Flabebe-Blue
+Flabebe-Orange
+Flabebe-White
+Flabebe-Yellow
 Floette
 Floette-Eternal
 Floette-Blue
