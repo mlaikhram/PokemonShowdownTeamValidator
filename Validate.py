@@ -33,7 +33,9 @@ def create_color_map():
 def get_species_from_text(txt, species_list, errors):
     species = []
     isPokemonName = True
-    for line in txt.splitlines():
+    decoded_text = [line.replace(b'\xc2\xa0', b' ').decode('utf-8', errors='replace').replace('\r\n', '\n').replace('\r', '\n') for line in txt.splitlines()]
+    for line in decoded_text:
+        # print(line)
         if isPokemonName:
             possible_species = re.findall('\(([^)]+)', str(line))
             check_state = 'gender'
@@ -61,7 +63,7 @@ def get_species_from_text(txt, species_list, errors):
                     errors.append('{} is not a Pokemon'.format(species_name))
 
             isPokemonName = False
-        elif line == b'':
+        elif line == '':
             isPokemonName = True
     return species
 
@@ -96,7 +98,8 @@ if __name__ == "__main__":
 
             all_teams[filename] = color_groups
 
-        if len(errors[filename]) > 0:
+        # print(errors)
+        if len([error for error in errors.values() if len(error) > 0]) > 0:
             print("{} has failed validation\n".format(sys.argv[1]))
         else:
             print("{} has been successfully validated!\n".format(sys.argv[1]))
@@ -116,7 +119,7 @@ if __name__ == "__main__":
 
             print("Sending validation logs to {}".format(email))
             # print(errors)
-            if not (error for error in errors.values() if error != []):
+            if len([error for error in errors.values() if len(error) > 0]) <= 0:
                 email_body += "\nCongratulations! Your {} team{} passed validation!\n".format(len(team_files), ' has' if len(team_files) == 1 else 's have')
 
             else:
