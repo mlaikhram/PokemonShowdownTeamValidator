@@ -1,2 +1,6 @@
 .idea
 teams/
+credentials.json
+token.pickle
+users.txt
+__pycache__
