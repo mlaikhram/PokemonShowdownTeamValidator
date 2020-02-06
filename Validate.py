@@ -76,10 +76,11 @@ if __name__ == "__main__":
     color_map = create_color_map()
     all_teams = {}
     with ZipFile(sys.argv[1], 'r') as zip:
-        print("{} teams found!".format(len(zip.namelist())))
-        if len(zip.namelist()) > int(sys.argv[3]):
-            errors['general'].append('You have exceeded the max number of teams with {} teams total'.format(len(zip.namelist())))
-        for filename in zip.namelist():
+        team_files = [file for file in zip.namelist() if not file.startswith('__MACOSX')]
+        print("{} teams found!".format(len(team_files)))
+        if len(team_files) > int(sys.argv[3]):
+            errors['general'].append('You have exceeded the max number of teams with {} teams total'.format(len(team_files)))
+        for filename in team_files:
             print("Validating {}...".format(filename))
             errors[filename] = []
             team = zip.read(filename)
@@ -116,10 +117,10 @@ if __name__ == "__main__":
             print("Sending validation logs to {}".format(email))
             # print(errors)
             if not (error for error in errors.values() if error != []):
-                email_body += "\nCongratulations! Your {} team{} passed validation!\n".format(len(zip.namelist()), ' has' if len(zip.namelist()) == 1 else 's have')
+                email_body += "\nCongratulations! Your {} team{} passed validation!\n".format(len(team_files), ' has' if len(team_files) == 1 else 's have')
 
             else:
-                email_body += "\nIt looks like your {} team{} failed validation :(.\nHere are the reasons your team failed:\n".format(len(zip.namelist()), ' has' if len(zip.namelist()) == 1 else 's have')
+                email_body += "\nIt looks like your {} team{} failed validation :(.\nHere are the reasons your team failed:\n".format(len(team_files), ' has' if len(team_files) == 1 else 's have')
 
                 for error_group in errors:
                     if len(errors[error_group]) > 0:
