@@ -7,12 +7,15 @@ Unown
 Sneasel
 Houndour
 Houndoom
+Houndoom-Mega
 Mawile
+Mawile-Mega
 Spoink
 Seviper
 Claydol
 Shuppet
 Banette
+Banette-Mega
 Duskull
 Dusclops
 Honchkrow

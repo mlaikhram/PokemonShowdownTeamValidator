@@ -5,6 +5,7 @@ Wigglytuff
 Slowpoke
 Slowpoke-Galar
 Slowbro
+Slowbro-Mega
 Slowbro-Galar
 Exeggcute
 Lickitung
@@ -35,6 +36,7 @@ Mesprit
 Munna
 Musharna
 Audino
+Audino-Mega
 Deerling
 Deerling-Summer
 Deerling-Autumn
@@ -44,6 +46,7 @@ Spritzee
 Aromatisse
 Sylveon
 Diancie
+Diancie-Mega
 Oricorio-Pa'u
 Fomantis
 Lurantis

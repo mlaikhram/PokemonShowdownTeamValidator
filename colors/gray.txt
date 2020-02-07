@@ -13,6 +13,7 @@ Rhydon
 Misdreavus
 Pineco
 Steelix
+Steelix-Mega
 Qwilfish
 Remoraid
 Skarmory
@@ -25,6 +26,7 @@ Nosepass
 Aron
 Lairon
 Aggron
+Aggron-Mega
 Volbeat
 Barboach
 Anorith
@@ -32,6 +34,7 @@ Armaldo
 Castform
 Snorunt
 Glalie
+Glalie-Mega
 Relicanth
 Registeel
 Shieldon

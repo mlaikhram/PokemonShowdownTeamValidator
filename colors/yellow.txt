@@ -1,5 +1,6 @@
 Kakuna
 Beedrill
+Beedrill-Mega
 Pikachu
 Pikachu-Alola
 Pikachu-Hoenn
@@ -32,6 +33,7 @@ Quilava
 Typhlosion
 Pichu-Spiky-eared
 Ampharos
+Ampharos-Mega
 Sunkern
 Sunflora
 Girafarig
@@ -44,6 +46,7 @@ Pelipper
 Ninjask
 Makuhita
 Manectric
+Manectric-Mega
 Plusle
 Minun
 Numel

@@ -1,6 +1,7 @@
 Bulbasaur
 Ivysaur
 Venusaur
+Venusaur-Mega
 Caterpie
 Metapod
 Bellsprout
@@ -20,10 +21,12 @@ Politoed
 Skiploom
 Larvitar
 Tyranitar
+Tyranitar-Mega
 Celebi
 Treecko
 Grovyle
 Sceptile
+Sceptile-Mega
 Dustox
 Lotad
 Lombre
@@ -40,6 +43,7 @@ Cradily
 Kecleon
 Tropius
 Rayquaza
+Rayquaza-Mega
 Turtwig
 Grotle
 Torterra

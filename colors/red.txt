@@ -1,6 +1,8 @@
 Charmander
 Charmeleon
 Charizard
+Charizard-Mega-X
+Charizard-Mega-Y
 Vileplume
 Paras
 Parasect
@@ -19,6 +21,7 @@ Ledian
 Ariados
 Yanma
 Scizor
+Scizor-Mega
 Slugma
 Magcargo
 Octillery
@@ -29,14 +32,18 @@ Ho-Oh
 Torchic
 Combusken
 Blaziken
+Blaziken-Mega
 Wurmple
 Medicham
+Medicham-Mega
 Carvanha
 Camerupt
+Camerupt-Mega
 Solrock
 Corphish
 Crawdaunt
 Latias
+Latias-Mega
 Groudon
 Deoxys
 Deoxys-Attack

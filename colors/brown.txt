@@ -2,6 +2,7 @@ Weedle
 Pidgey
 Pidgeotto
 Pidgeot
+Pidgeot-Mega
 Raticate
 Spearow
 Fearow
@@ -18,6 +19,7 @@ Arcanine
 Abra
 Kadabra
 Alakazam
+Alakazam-Mega
 Geodude
 Graveler
 Golem
@@ -30,8 +32,10 @@ Marowak
 Hitmonlee
 Hitmonchan
 Kangaskhan
+Kangaskhan-Mega
 Staryu
 Pinsir
+Pinsir-Mega
 Tauros
 Eevee
 Kabuto
@@ -77,6 +81,7 @@ Buizel
 Floatzel
 Buneary
 Lopunny
+Lopunny-Mega
 Bonsly
 Hippopotas
 Hippowdon
